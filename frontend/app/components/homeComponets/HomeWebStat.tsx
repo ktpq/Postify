@@ -16,7 +16,7 @@ export default function HomeWebStat() {
     AOS.init()
   })
   return (
-    <section className="grid grid-cols-4 mx-50 gap-8"  data-aos="fade-up" data-aos-duration="1000">
+    <section className="grid grid-cols-4 mx-50 gap-8 max-md:mx-15 max-lg:grid-cols-2 max-md:grid-cols-1"  data-aos="fade-up" data-aos-duration="1000">
       <HomeStatCard icon={<BookIcon />} count={1247} title="บทความทั้งหมด" />
       <HomeStatCard icon={<HumanIcon />} count={342} title="นักเขียน" />
       <HomeStatCard icon={<PenIcon />} count={28} title="บทความใหม่วันนี้" />

@@ -13,7 +13,7 @@ export default function ArticleCard() {
   })
   
   return (
-    <div className='bg-white hover:scale-103 duration-300 rounded-lg shadow-sm'  data-aos="fade-up" data-aos-duration="1000">
+    <div className='bg-white hover:scale-103 rounded-lg shadow-sm duration-300'  data-aos="fade-up" data-aos-duration="1000">
 
             <div className='relative'>
                 <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=200&fit=crop" alt="" className='w-full rounded-t-lg'/>

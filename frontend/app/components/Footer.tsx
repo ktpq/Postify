@@ -9,13 +9,13 @@ export default function Footer() {
 
   return (
     <section className='bg-[#111828] text-white'>
-        <div className='mx-50 pb-12 border-b border-[#868383]'>
+        <div className='mx-50 pb-12 border-b border-[#868383] max-md:mx-7'>
             
-            <div className='grid grid-cols-4 gap-20 pt-15'>
+            <div className='grid grid-cols-4 gap-20 pt-15 max-md:grid-cols-2'>
                 <div>
                     <div  className='flex items-center'>
                         <WebLogo/>
-                        <h2 className='text-[20px] ml-3 font-extrabold '> ThaiBlogs </h2>
+                        <h2 className='text-[20px] ml-3 font-extrabold '> Postify </h2>
                     </div>
 
                     <p className='mt-5 text-[#c4c4c4]'> แพลตฟอร์มบล็อกภาษาไทยที่ให้คุณแบ่งปันและเรียนรู้ไปด้วยกัน </p>
