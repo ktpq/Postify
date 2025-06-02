@@ -3,15 +3,18 @@ import React from 'react'
 import ArticleCard from '../ArticleCard'
 
 export default function HomeRecommendArticles() {
+
+  const articles = ["บทความแนะนำ 1", "บทความแนะนำ 2", "บทความแนะนำ 3"]
   return (
     <section className='mt-30 mx-50 max-lg:mx-7'>
         <h3 className='text-[30px] text-[#222b38] font-bold text-center'> บทความแนะนำ </h3>
         <p className='text-[#222b38] text-center mt-5'> บทความยอดนิยมและน่าสนใจที่คัดสรรมาเป็นพิเศษ </p>
 
         <div className='grid grid-cols-3 gap-10 mt-16 max-md:grid-cols-1'>
-            <ArticleCard/>
-            <ArticleCard/>
-            <ArticleCard/>
+          
+            {articles.map((item, index) => (
+              <ArticleCard cardTitle={item} fakeId={index+1} key={index}/>
+            ))}
             
         </div>
         

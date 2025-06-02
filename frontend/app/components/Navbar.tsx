@@ -29,8 +29,8 @@ export default function Navbar() {
         </div>
         
         <div className="flex space-x-7 max-lg:hidden">
-          <a href="" className="text-[#384152] hover:from-blue-600 hover:to-purple-600 hover:bg-gradient-to-r hover:text-transparent hover:bg-clip-text">หน้าแรก</a>
-          <a href="" className="text-[#384152] hover:from-blue-600 hover:to-purple-600 hover:bg-gradient-to-r hover:text-transparent hover:bg-clip-text">บทความ</a>
+          <a href="/" className="text-[#384152] hover:from-blue-600 hover:to-purple-600 hover:bg-gradient-to-r hover:text-transparent hover:bg-clip-text">หน้าแรก</a>
+          <a href="/articles" className="text-[#384152] hover:from-blue-600 hover:to-purple-600 hover:bg-gradient-to-r hover:text-transparent hover:bg-clip-text">บทความ</a>
           <a href="" className="text-[#384152] hover:from-blue-600 hover:to-purple-600 hover:bg-gradient-to-r hover:text-transparent hover:bg-clip-text">เกี่ยวกับเรา</a>
         </div>
 
@@ -39,7 +39,7 @@ export default function Navbar() {
           <a className="bg-gradient text-white px-3 py-2 rounded-lg text-[14px] cursor-pointer" href="/register"> สมัครสมาชิก </a>
         </div>
 
-        <img src="./menu.png" alt="" width={40} className="hidden max-lg:block" onClick={() =>{setIsOpen(!isOpen)}}/>
+        <img src="../menu.png" alt="" width={40} className="hidden max-lg:block" onClick={() =>{setIsOpen(!isOpen)}}/>
 
       </nav>
 
@@ -48,14 +48,14 @@ export default function Navbar() {
       {isOpen ? (
         <section className="bg-white">
           <div className="hidden max-lg:flex text-center justify-around p-3">
-            <a href="" className="from-blue-600 to-purple-600 bg-gradient-to-r text-transparent bg-clip-text">หน้าแรก</a>
-            <a href="" className="from-blue-600 to-purple-600 bg-gradient-to-r text-transparent bg-clip-text">บทความ</a>
+            <a href="/" className="from-blue-600 to-purple-600 bg-gradient-to-r text-transparent bg-clip-text">หน้าแรก</a>
+            <a href="/articles" className="from-blue-600 to-purple-600 bg-gradient-to-r text-transparent bg-clip-text">บทความ</a>
             <a href="" className="from-blue-600 to-purple-600 bg-gradient-to-r text-transparent bg-clip-text">เกี่ยวกับเรา</a>
           </div>
 
           <div className="grid grid-cols-2 gap-5 p-3">
-            <a className="border border-gray-300 px-4 py-2 rounded-lg text-[14px] hover:scale-105 hover:bg-gray-100 duration-300 cursor-pointer" href="/login"> เข้าสู่ระบบ </a>
-            <a className="bg-gradient text-white px-3 py-2 rounded-lg text-[14px] cursor-pointer" href="/register"> สมัครสมาชิก </a>
+            <a className="border border-gray-300 px-4 py-2 rounded-lg text-[14px] hover:scale-105 hover:bg-gray-100 duration-300 cursor-pointer text-center" href="/login"> เข้าสู่ระบบ </a>
+            <a className="bg-gradient text-white px-3 py-2 rounded-lg text-[14px] cursor-pointer text-center" href="/register"> สมัครสมาชิก </a>
           </div>
       </section>
       ): null}
