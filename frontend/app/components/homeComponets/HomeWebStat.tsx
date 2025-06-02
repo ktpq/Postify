@@ -3,7 +3,7 @@ import React from "react";
 
 import { useEffect } from "react";
 
-import { BookIcon, HumanIcon, PenIcon, StarIcon } from "../../icon";
+import { BookIcon, HumanIcon, PenIcon, StarIcon } from "@/app/iconElement";
 
 import HomeStatCard from "./HomeStatCard";
 
@@ -15,6 +15,7 @@ export default function HomeWebStat() {
   useEffect(() =>{
     AOS.init()
   })
+  
   return (
     <section className="grid grid-cols-4 mx-50 gap-8 max-md:mx-15 max-lg:grid-cols-2 max-md:grid-cols-1"  data-aos="fade-up" data-aos-duration="1000">
       <HomeStatCard icon={<BookIcon />} count={1247} title="บทความทั้งหมด" />
