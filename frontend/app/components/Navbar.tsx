@@ -46,7 +46,7 @@ export default function Navbar() {
       {/* Nav อันล่างเวลาจอเล็ก */}
 
       {isOpen ? (
-        <section className="bg-white">
+        <section className="bg-white lg:hidden">
           <div className="hidden max-lg:flex text-center justify-around p-3">
             <a href="/" className="from-blue-600 to-purple-600 bg-gradient-to-r text-transparent bg-clip-text">หน้าแรก</a>
             <a href="/articles" className="from-blue-600 to-purple-600 bg-gradient-to-r text-transparent bg-clip-text">บทความ</a>

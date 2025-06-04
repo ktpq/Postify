@@ -58,7 +58,7 @@ export default function Footer() {
 
             
         </div>
-        <p className='text-center mt-15 pb-10 text-[#c4c4c4]'> © {currentYear} ThaiBlogs. สงวนลิขสิทธิ์ทุกประการ </p>
+        <p className='text-center mt-15 pb-10 text-[#c4c4c4]'> © {currentYear} Postify. สงวนลิขสิทธิ์ทุกประการ </p>
     </section>
   )
 }
