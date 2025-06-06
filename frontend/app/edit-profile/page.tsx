@@ -1,8 +1,12 @@
+'use client'
+
 import React from 'react'
+import { useState } from 'react'
 
 import Navbar from '../components/Navbar'
 
 export default function page() {
+  
   return (
     <>
     <Navbar/>
@@ -26,7 +30,7 @@ export default function page() {
             </div>
 
             <p className='mt-8'> ชื่อผู้ใช้ </p>
-            <input type="text" className='mt-2 w-full border border-gray-300 py-2 rounded-lg px-4 text-gray-700'/>
+            <input type="text" className='mt-2 w-full border border-gray-300 py-2 rounded-lg px-4 text-gray-700'/> 
 
             <p className='mt-8'> อีเมล์</p>
             <input type="text" className='mt-2 w-full border border-gray-300 py-2 rounded-lg px-4 text-gray-700'/>

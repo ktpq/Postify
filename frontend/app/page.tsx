@@ -10,13 +10,13 @@ import HomeGetStarted from "./components/homeComponets/HomeGetStarted";
 
 export default function page() {
   return (
-    <>
+    <div className="">
       <Navbar />
       <HomeHero />
       <HomeWebStat />
       <HomeRecommendArticles/>
       <HomeGetStarted/>
       <Footer/>
-    </>
+    </div>
   );
 }

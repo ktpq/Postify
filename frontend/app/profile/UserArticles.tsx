@@ -6,7 +6,7 @@ export default function UserArticles() {
 
         <div className='flex justify-between items-center max-sm:flex-col max-sm:space-y-3'>
             <h2 className='text-2xl'> บทความของฉัน </h2>
-            <a className='bg-black text-white px-5 py-2.5 rounded-md shadow-sm hover:scale-105 duration-200 flex space-x-3'>
+            <a className='bg-black text-white px-5 py-2.5 rounded-md shadow-sm hover:scale-105 duration-200 flex space-x-3' href='/create'>
                 <img src="../pen.png" alt="" width={25}/>
                 <p>เขียนใหม่</p> 
             </a>

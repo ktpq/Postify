@@ -25,9 +25,9 @@ export default function page({params}: ParamsProp) {
         
         {/* Attribute ของ โพสต์ */}
         <div className='flex space-x-7 justify-center items-center max-sm:space-x-2'>
-            <div className='max-sm:flex-col max-sm:space-y-2'> 
+            <div className='flex max-sm:flex-col max-sm:space-y-2'> 
                 <img src="../person.png" alt="" width={20} className='max-sm:mx-auto'/>
-                <p className='ml-3'> John Doe </p>  
+                <p className='ml-3'> John Doe </p>
             </div>
             <div className='flex max-sm:flex-col max-sm:space-y-2'>
                 <img src="../calendar.png" alt="" width={20} className='max-sm:mx-auto'/>
