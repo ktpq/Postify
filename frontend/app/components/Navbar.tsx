@@ -7,13 +7,11 @@ import WebLogo from "./WebLogo";
 export default function Navbar() {
 
   const isAdmin:boolean = false;
-  const isLogin:boolean = true;
+  const isLogin:boolean = false;
 
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false)
 
-
-  
 
   return (
     <>
