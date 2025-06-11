@@ -1,16 +1,26 @@
 'use client'
 import React from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import WebLogo from "../components/WebLogo";
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+import { handleLogin } from "./helper";
+
 export default function page() {
+
+  const [inputEmail, setInputEmail] = useState<string>("");
+  const [inputPassword, setInputPassword] = useState<string>("");
+
   useEffect(()=>{
     AOS.init()
   })
+
+  const onSubmitButton = () => {
+    handleLogin(inputEmail, inputPassword)
+  }
   return (
     <section className="w-[450px] max-sm:w-[95vw]" data-aos="zoom-in" data-aos-duration="1000">
       <div className="flex w-fit mx-auto py-10 cursor-pointer">
@@ -26,13 +36,13 @@ export default function page() {
         <p className="mt-8 mb-2"> อีเมล </p>
         <div className="relative">
           <img src="./mail.png" alt="" width={22} className="absolute left-4 top-3.5"/>
-          <input type="text" className="border border-gray-200 rounded-lg w-full py-3 pl-13 pr-5 font-light" placeholder="your@email.com" />
+          <input type="text" className="border border-gray-200 rounded-lg w-full py-3 pl-13 pr-5 font-light" placeholder="your@email.com" value={inputEmail} onChange={(event:React.ChangeEvent<HTMLInputElement>) => setInputEmail(event.target.value)}/>
         </div>
 
         <p className="mt-8 mb-2"> รหัสผ่าน </p>
         <div className="relative">
           <img src="./lock.png" alt="" width={22} className="absolute left-4 top-3.5"/>
-          <input type="text" className="border border-gray-200 rounded-lg w-full py-3 pl-13 pr-5 font-light" placeholder="รหัสผ่านของคุณ" />
+          <input type="text" className="border border-gray-200 rounded-lg w-full py-3 pl-13 pr-5 font-light" placeholder="รหัสผ่านของคุณ" value={inputPassword} onChange={(event:React.ChangeEvent<HTMLInputElement>) => setInputPassword(event.target.value)}/>
         </div>
 
         <div className="mt-8 flex justify-between  items-center">
@@ -43,7 +53,7 @@ export default function page() {
            <a href="" className="text-blue-600"> ลืมรหัสผ่าน ? </a>
         </div>
 
-        <button className="mt-8 bg-gradient w-full text-white py-4 rounded-lg shadow-sm"> เข้าสู่ระบบ </button>
+        <button className="mt-8 bg-gradient w-full text-white py-4 rounded-lg shadow-sm" onClick={onSubmitButton}> เข้าสู่ระบบ </button>
 
         <p className="text-center mt-8"> ยังไม่มีบัญชี ? <a href="/register" className="text-blue-600">สมัครสมาชิก </a></p>
       </div>

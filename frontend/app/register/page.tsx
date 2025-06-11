@@ -7,9 +7,7 @@ import WebLogo from "../components/WebLogo";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-import Swal from "sweetalert2";
-import axios from "axios";
-import isEmail from "validator/lib/isEmail";
+import { handleRegister } from './helper'
 
 
 export default function page() {
@@ -22,79 +20,10 @@ export default function page() {
     AOS.init();
   }, []);
 
-
-
-const handleRegister = async () => {
-  // เช็คช่องว่าง
-  if (!inputUsername || !inputEmail || !inputPassword || !inputConfirmPassword) {
-    Swal.fire({
-      title: "กรอกข้อมูลไม่ครบ",
-      text: "กรุณากรอกข้อมูลให้ครบทุกช่อง!",
-      icon: "warning",
-    });
-    return;
+  const onSubmitButton = () =>{
+    handleRegister(inputUsername, inputEmail, inputPassword, inputConfirmPassword);
   }
 
-  // ตรวจสอบอีเมล
-  if (!isEmail(inputEmail)) {
-    Swal.fire({
-      title: "อีเมลไม่ถูกต้อง",
-      text: "กรุณากรอกอีเมลที่ถูกต้อง เช่น your@email.com",
-      icon: "error",
-    });
-    return;
-  }
-
-  // ตรวจสอบความยาวของรหัสผ่าน
-  if (inputPassword.length < 6) {
-    Swal.fire({
-      title: "รหัสผ่านสั้นเกินไป",
-      text: "กรุณาตั้งรหัสผ่านอย่างน้อย 6 ตัวอักษร",
-      icon: "error",
-    });
-    return;
-  }
-
-  // ตรวจสอบว่ารหัสผ่านตรงกันไหม
-  if (inputPassword !== inputConfirmPassword) {
-    Swal.fire({
-      title: "รหัสผ่านไม่ตรงกัน",
-      text: "กรุณายืนยันรหัสผ่านให้ตรงกัน",
-      icon: "error",
-    });
-    return;
-  }
-
-  // ✅ ถ้าทุกอย่างผ่าน
-  try {
-    const response = await axios.post("http://localhost:5000/api/register", {
-      username: inputUsername,
-      email: inputEmail,
-      password: inputPassword,
-    });
-
-    if (response.data.error) {
-      Swal.fire({
-        title: "มีอีเมล์นี้อยู่ในระบบอยู่แล้ว",
-        text: "กรุณาลองใหม่อีกครั้ง!",
-        icon: "error",
-      });
-    } else {
-      Swal.fire({
-        title: "สมัครสมาชิกสำเร็จ!",
-        text: "ไปหน้าเข้าสู่ระบบเพื่อใช้งาน",
-        icon: "success",
-      })
-    }
-  } catch (err) {
-    Swal.fire({
-      title: "เกิดข้อผิดพลาด",
-      text: "ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้",
-      icon: "error",
-    });
-    console.error(err);
-  }
-};
 
 
   return (
@@ -134,7 +63,7 @@ const handleRegister = async () => {
 
         
 
-        <button className="mt-8 bg-gradient w-full text-white py-4 rounded-lg shadow-sm" onClick={handleRegister}> สมัครสมาชิก </button>
+        <button className="mt-8 bg-gradient w-full text-white py-4 rounded-lg shadow-sm" onClick={onSubmitButton}> สมัครสมาชิก </button>
 
         <p className="text-center mt-8"> มีบัญชีแล้ว ? <a href="/login" className="text-blue-600"> เข้าสู่ระบบ </a></p>
       </div>

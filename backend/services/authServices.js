@@ -11,3 +11,19 @@ exports.createUser = async({username, email, password}) =>{
         }
     })
 }
+
+exports.getUserByEmail = async({email, password}) =>{
+    return await prisma.Users.findUnique({
+            where: {
+                user_email: email
+            }
+        })
+}
+
+exports.getUserById = async(userId) =>{
+    return await prisma.Users.findUnique({
+        where: {
+            user_id: userId
+        }
+    })
+}
