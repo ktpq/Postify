@@ -22,7 +22,6 @@ export default function page() {
   
   return (
     <>
-    <Navbar/>
 
     <section className='bg-white w-[55vw] mx-auto mt-7 p-7 shadow-md rounded-lg max-xl:w-[80vw] max-sm:w-[93vw]' data-aos="fade-up" data-aos-duration="750">
         <h1 className='text-3xl text-center'> เขียนบทความใหม่ </h1>

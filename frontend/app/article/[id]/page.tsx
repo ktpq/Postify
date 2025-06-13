@@ -14,7 +14,6 @@ export default function page({params}: ParamsProp) {
   const { id } = params;
   return (
     <>
-    <Navbar/>
     <a className='mx-50 mt-10 flex items-center max-lg:mx-7' href='/articles'>
         <img src="../back.png" alt="" width={30}/>
         <p> กลับสู่หน้าบทความ</p>

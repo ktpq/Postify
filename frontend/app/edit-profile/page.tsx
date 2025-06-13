@@ -9,7 +9,6 @@ export default function page() {
   
   return (
     <>
-    <Navbar/>
     <section className='mx-70 max-xl:mx-20 max-lg:mx-0 pb-10'>
         <a href="/profile" className='flex items-center mt-10 max-lg:ml-10'>
             <img src="../back.png" alt="" width={30}/>

@@ -25,7 +25,6 @@ export default function page() {
 
   return (
     <>
-    <Navbar/>
     <section className='mx-50 max-lg:mx-7 max-sm:mx-3 p-5'>
         <h1 className='text-3xl mt-5 font-bold'> แดชบอร์ดผู้ดูแลระบบ </h1>
         <h2 className='mt-3 text-gray-600'> จัดการบทความและผู้ใช้งานในระบบ </h2>

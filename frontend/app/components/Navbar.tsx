@@ -2,54 +2,45 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
+import { usePathname } from "next/navigation";
+
 import WebLogo from "./WebLogo";
 import axios from "axios";
 
-export default function Navbar() {
+interface Props{
+  isLogin: boolean
+  userData:any
+}
 
-  const isAdmin: boolean = false;
-  const [isLogin, setIsLogin] = useState<boolean>(false);
-  const [loading, setLoading] = useState(true);
+export default function Navbar({isLogin, userData}: Props) {
+
+  // const isAdmin: boolean = true;
+  // const [isLogin, setIsLogin] = useState<boolean>(false);
+  // const [userData, setUserData] = useState<any>(null);
+
+  const pathname = usePathname()
+
+  if (pathname === "/login" || pathname === "/register") {
+    return null; // ไม่แสดง Navbar
+  }
+
 
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false)
-  const [userData, setUserData] = useState<any>(null);
-
-
-  const getProfile = async () => {
-    try {
-      const response = await axios.get('http://localhost:5000/api/getProfile', {
-        withCredentials: true
-      });
-      setUserData(response.data.userData);
-      setIsLogin(response.data.isLogin);
-    } catch (e) {
-      setUserData(null);
-      setIsLogin(false);
-    }
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    getProfile();
-
-  }, []);
-
-  // if (loading) {
-  //   return <div className="text-4xl text-center font-bold pt-40">Loading...</div>; // หรือ skeleton UI
-  // }
-
+  
   const handleLogout = async () => { 
     try{
       await axios.post('http://localhost:5000/api/logout', {}, { withCredentials: true });
-      setUserData(null);
-      setIsLogin(false);
+      // setUserData(null);
+      // setIsLogin(false);
       window.location.href = "/";
     } catch (e) {
       // handle error เงียบๆ หรือแสดงแจ้งเตือน
       console.log("error", e)
     } 
   }
+
+  console.log(userData)
 
   return (
     <>
