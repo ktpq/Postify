@@ -40,7 +40,7 @@ export default function Navbar({isLogin, userData}: Props) {
     } 
   }
 
-  console.log(userData)
+  // console.log(userData)
 
   return (
     <>
@@ -84,7 +84,7 @@ export default function Navbar({isLogin, userData}: Props) {
             {/* Profile dropdown */}
 
 
-            <div className={`absolute top-full left-0 w-full mt-2 z-50 bg-white rounded shadow-md border border-gray-200 transition-all ${isDropdownOpen ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}>
+            <div className={`absolute top-full left-0 w-full mt-2 z-50 bg-white rounded shadow-md border border-gray-200 transition-all ${isDropdownOpen ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
               <div className="p-3 border-b border-gray-300">
                 <h1 className="text-lg"> {userData?.username} </h1>
                 <p className="text-sm mt-2 text-gray-500"> {userData?.email} </p>

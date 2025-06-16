@@ -1,4 +1,37 @@
-const { deleteUserById } = require('../services/userServices')
+const { deleteUserById, getUserById, updateUserById } = require('../services/userServices')
+
+exports.getUserById = async (req, res) =>{
+    try{
+        const { id } = req.params
+        const User = await getUserById({id})
+        res.json({
+            message: "fetching user data by id successfully",
+            userData: User
+        })
+    } catch (error){
+        res.json({
+            message: "Cannot fetch user data by id",
+            error
+        })
+    }
+}
+
+exports.updateUser = async (req, res) =>{
+    try{
+        const { id } = req.params
+        const { username, email, description, website, address} = req.body
+        const updateUser = await updateUserById({id, username, email, description, website, address})
+        res.json({
+            message: 'update user successfully',
+            updateUser
+        })
+    } catch (error){
+        res.json({
+            message: 'cannot update user',
+            error
+        })
+    }
+}
 
 exports.deleteUser = async (req, res) =>{
     try {

@@ -1,17 +1,32 @@
-'use client'
-
 import React from 'react'
-import { useState } from 'react'
+import { redirect } from 'next/navigation'
 
-import Navbar from '../components/Navbar'
+import EditProfileForm from './EditProfileForm'
 
-export default function page() {
+import { getProfile } from '../getProfile'
+
+import axios from 'axios'
+
+export default async function page(){
+
+  const base_api = process.env.NEXT_PUBLIC_API_URL
+  const dataId = await getProfile()
+ 
+  if (!dataId.userData){
+    redirect('/')
+  }
+  const userId = dataId.userData.id;
   
+  const response = await axios.get(`${base_api}/api/users/${userId}`);
+   
+  const data = response.data;
+  const userData = data.userData;
+
   return (
     <>
     <section className='mx-70 max-xl:mx-20 max-lg:mx-0 pb-10'>
         <a href="/profile" className='flex items-center mt-10 max-lg:ml-10'>
-            <img src="../back.png" alt="" width={30}/>
+            <img src="/back.png" alt="" width={30}/>
             <p> ย้อนกลับ </p>
         </a>
        
@@ -28,30 +43,9 @@ export default function page() {
                 <p className='text-gray-600'> อัปเดตข้อมูลส่วนตัวของคุณ</p>
             </div>
 
-            <p className='mt-8'> ชื่อผู้ใช้ </p>
-            <input type="text" className='mt-2 w-full border border-gray-300 py-2 rounded-lg px-4 text-gray-700'/> 
-
-            <p className='mt-8'> อีเมล์</p>
-            <input type="text" className='mt-2 w-full border border-gray-300 py-2 rounded-lg px-4 text-gray-700'/>
-
-            <p className='mt-8'> แนะนำตัว </p>
-            <textarea className='mt-2 w-full border border-gray-300 py-2 rounded-lg px-4 text-gray-700'/>
-
-            <p className='mt-8'> เว็บไซต์ </p>
-            <input type="text" className='mt-2 w-full border border-gray-300 py-2 rounded-lg px-4 text-gray-700'/>
-
-            <p className='mt-8'> ที่อยู่ </p>
-            <input type="text" className='mt-2 w-full border border-gray-300 py-2 rounded-lg px-4 text-gray-700'/>
-
-            <div className='grid grid-cols-2 mt-10 space-x-5'>
-                <button className='py-2 border border-gray-300 rounded-lg cursor-pointer hover:scale-105 duration-200 hover:bg-gray-100'>ยกเลิก</button>
-                <button className='py-2 bg-gradient text-white rounded-lg cursor-pointer '>บันทึกการเปลี่ยนแปลง</button>
-            </div>
-
-            
+            <EditProfileForm userData={userData} userId={userId}/>
 
         </main>
-                    
     </section>
     </>
   )

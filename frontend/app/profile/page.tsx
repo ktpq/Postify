@@ -1,11 +1,33 @@
 import React from 'react'
 
-import Navbar from '../components/Navbar'
-
 import UserInformation from './UserInformation'
 import UserArticles from './UserArticles'
 
-export default function page() {
+import { getProfile } from '../getProfile'
+
+import axios from 'axios'
+
+export default async function page() {
+
+    // get Id มาดูว่าเราเป็นใครเเละทำการส่งไปเพื่อ getUser
+    const data = await getProfile()
+    const userData = data.userData;
+    const userId = userData.id;
+    
+    // fetching data
+    const getUserDetail = async () =>{
+        try{
+            const base_api = process.env.NEXT_PUBLIC_API_URL
+            const response = await axios.get(`${base_api}/api/users/${userId}`)
+            return response.data
+        } catch (error){
+            console.log('error', error)
+        }
+    }
+
+    const user = await getUserDetail();
+    const userDetail = user.userData;
+
     return (
         <div className='border-main'>
             <section className='mx-50 pt-15 max-xl:mx-20 max-lg:mx-7 '>
@@ -14,8 +36,7 @@ export default function page() {
                     
 
                     {/* grid ช่องซ้าย */}
-                    <UserInformation/>
-                    
+                    <UserInformation userData={userDetail}/>
 
                     {/* grid ช่องขวา */}
                     <UserArticles/>

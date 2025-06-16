@@ -22,7 +22,7 @@ export default function Footer() {
                     
                 </div>
 
-                <div>
+                {/* <div>
                     <h2 className='text-[18px] font-bold'> เมนูหลัก </h2>
                     <div className='flex flex-col justify-start items-start mt-2 space-y-3 pt-5 text-[#c4c4c4]'>
                         <a href="" className='hover:text-white duration-200'>หน้าแรก</a>
@@ -50,7 +50,7 @@ export default function Footer() {
                         <a href="" className='hover:text-white duration-200'>หมวดหมู่</a>
                         <a href="" className='hover:text-white duration-200'>นักเขียน</a>
                     </div>
-                </div>
+                </div> */}
 
                 
                 

@@ -14,11 +14,11 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>)
 {
+  
   const data = await getProfile()
   const isLogin = data.isLogin;
   const userData = data.userData
 
-  
   return (
     <html lang="en">
       <body className="bg-main font-main min-h-screen">

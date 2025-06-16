@@ -18,10 +18,12 @@ app.use(cookieParser())
 
 const authRouter = require('./routes/authRouter')
 const userRouter = require('./routes/userRouter')
+const postRouter = require('./routes/postRouter')
 
 
 app.use(authRouter)
 app.use(userRouter)
+app.use(postRouter)
 
 
 
