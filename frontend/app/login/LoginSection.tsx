@@ -44,7 +44,7 @@ export default function LoginSection() {
                 <p className="mt-8 mb-2"> รหัสผ่าน </p>
                 <div className="relative">
                 <img src="./lock.png" alt="" width={22} className="absolute left-4 top-3.5"/>
-                <input type="text" className="border border-gray-200 rounded-lg w-full py-3 pl-13 pr-5 font-light" placeholder="รหัสผ่านของคุณ" value={inputPassword} onChange={(event:React.ChangeEvent<HTMLInputElement>) => setInputPassword(event.target.value)}/>
+                <input type="password" className="border border-gray-200 rounded-lg w-full py-3 pl-13 pr-5 font-light" placeholder="รหัสผ่านของคุณ" value={inputPassword} onChange={(event:React.ChangeEvent<HTMLInputElement>) => setInputPassword(event.target.value)}/>
                 </div>
 
                 {/* <div className="mt-8 flex justify-between  items-center">
