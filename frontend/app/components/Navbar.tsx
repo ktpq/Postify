@@ -40,7 +40,8 @@ export default function Navbar({isLogin, userData}: Props) {
     } 
   }
 
-  // console.log(userData)
+  const smallLetter = userData?.username[0] ?? "test"
+  const largeLetter = smallLetter.toUpperCase()
 
   return (
     <>
@@ -78,7 +79,7 @@ export default function Navbar({isLogin, userData}: Props) {
               <p> เขียนบทความ </p>
             </a>
             <span className="rounded-[100%] w-10 h-10 p-3 flex justify-center items-center bg-gradient text-white cursor-pointer" onClick={() => { setIsDropdownOpen(!isDropdownOpen) }}>
-              J
+              {largeLetter}
             </span>
 
             {/* Profile dropdown */}
@@ -161,7 +162,7 @@ export default function Navbar({isLogin, userData}: Props) {
           <div className="flex flex-col gap-5 p-3 mb-5">
 
             <div className="flex items-center space-x-4">
-              <span className="rounded-[100%] w-12 h-12 p-3 flex justify-center items-center bg-gradient text-white cursor-pointer"> J </span>
+              <span className="rounded-[100%] w-12 h-12 p-3 flex justify-center items-center bg-gradient text-white cursor-pointer"> {largeLetter} </span>
               <div>
                 <h2> {userData?.username} </h2>
                 <p className="text-gray-600"> {userData?.email}</p>

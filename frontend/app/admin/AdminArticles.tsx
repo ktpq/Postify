@@ -43,29 +43,6 @@ export default function AdminArticles({isOpen}: Props) {
 
                 </section>
 
-                <section className='p-5 border border-gray-200 flex justify-between items-center rounded-lg hover:translate-x-1 duration-200 mt-5 max-xl:flex-col max-xl:space-y-4'>
-
-                    <div>
-                        <p className='font-bold text-lg max-xl:text-center'> เทคนิคการถ่ายภาพสำหรับมือใหม่ </p>
-                        <div className='flex items-center space-x-4 mt-3 max-md:flex-col max-md:space-y-3'>
-                            <p className='text-gray-600'> โดย: สมหญิง สวยงาม </p>
-                            <p className='text-gray-600'> วันที่: 2024-01-14 </p>
-                            <span className='flex items-center space-x-2 text-gray-600'>
-                                <img src="../views.png" alt="" width={20}/>
-                                 <p> 189 views </p>
-                            </span>
-                            <span className='px-3 bg-gray-300 rounded-2xl'>
-                                ร่าง
-                            </span>
-                        </div>
-                    </div>
-
-                    <button className='bg-red-400 text-white py-2 px-5 flex items-center space-x-3 justify-center rounded-lg hover:bg-red-500 duration-200 cursor-pointer'>
-                        <img src="../garbage-white.png" alt="" width={20}/>
-                        <p> ลบ </p>
-                    </button>
-
-                </section>
 
                 
             </main>

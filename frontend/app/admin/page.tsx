@@ -23,6 +23,7 @@ export default function page() {
     }
 }
 
+
   return (
     <>
     <section className='mx-50 max-lg:mx-7 max-sm:mx-3 p-5'>

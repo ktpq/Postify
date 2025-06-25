@@ -108,10 +108,10 @@ export default function CreateForm({userId}: Props) {
         <div className='flex justify-between items-center mt-5 max-sm:flex-col max-sm:space-y-4'>
             <p className='text-gray-500'> {articleContent.length} ตัวอักษร </p>
             <div className='flex items-center space-x-4 max-sm:space-x-3'>
-                <button className='flex space-x-2.5 border px-4 py-2 border-gray-300 borer rounded-lg hover:bg-gray-100 hover:scale-105 duration-200 max-sm:flex-col max-sm:items-center max-sm:space-y-2 cursor-pointer' onClick={() => {handleSubmit("ร่าง")}}>
+                {/* <button className='flex space-x-2.5 border px-4 py-2 border-gray-300 borer rounded-lg hover:bg-gray-100 hover:scale-105 duration-200 max-sm:flex-col max-sm:items-center max-sm:space-y-2 cursor-pointer' onClick={() => {handleSubmit("ร่าง")}}>
                     <img src="../save.png" alt="" width={25}/>
                     <p> บันทึกร่าง </p>
-                </button>
+                </button> */}
                 <button className='flex space-x-2.5 border px-4 py-2 bg-gradient text-white rounded-lg max-sm:flex-col max-sm:items-center max-sm:space-y-2 cursor-pointer' onClick={() => {handleSubmit("เผยแพร่แล้ว")}}>
                     <img src="../views-white.png" alt="" width={25}/>
                     <p> เผยแพร่ </p>

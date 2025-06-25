@@ -16,8 +16,8 @@ export default async function RootLayout({
 {
   
   const data = await getProfile()
-  const isLogin = data.isLogin;
-  const userData = data.userData
+  const isLogin = data?.isLogin
+  const userData = data?.userData
 
   return (
     <html lang="en">

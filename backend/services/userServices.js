@@ -38,3 +38,11 @@ exports.updateUserById = async ({id, username, email, description, website, addr
         }
     })
 }
+
+exports.getUnbannedUser = async () =>{
+    return await prisma.Users.count({
+        where :{
+            user_role: "user"
+        }
+    })
+} 

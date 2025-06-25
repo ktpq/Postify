@@ -8,14 +8,39 @@ import HomeWebStat from "./components/homeComponets/HomeWebStat";
 import HomeRecommendArticles from "./components/homeComponets/HomeRecommendArticles";
 import HomeGetStarted from "./components/homeComponets/HomeGetStarted";
 
-export default function page() {
+import axios from "axios";
+
+export default async function page() {
+  const base_api = process.env.NEXT_PUBLIC_API_URL
+  // recommendPost
+  const recommendResponse = await axios.get(`${base_api}/api/posts/recommend`);
+  const recommendPost = recommendResponse.data.recommendPost
+
+  const allPostCountResponse = await axios.get(`${base_api}/api/posts/count`);
+  const allPostCount = allPostCountResponse.data.postCount;
+  
+  const allUserResponse = await axios.get(`${base_api}/api/users/count-unbanned`);
+  const allUser = allUserResponse.data.countUnbanned;
+  
+  const postTodayResponse = await axios.get(`${base_api}/api/posts/today`);
+  const postToday = postTodayResponse.data.postToday
+
+  const allPostViewResponse = await axios.get(`${base_api}/api/posts/view`);
+  const allPostView = allPostViewResponse.data.allPostView._sum.post_view;
+  
+  
+
+  
+
+  console.log(new Date())
+
   return (
     <div className="">
       <HomeHero />
-      <HomeWebStat />
-      <HomeRecommendArticles/>
-      <HomeGetStarted/>
-      <Footer/>
+      <HomeWebStat postCount={allPostCount} allUser={allUser} postToday={postToday} allPostView={allPostView}/>
+      <HomeRecommendArticles recommendPost={recommendPost} />
+      <HomeGetStarted />
+      <Footer />
     </div>
   );
 }

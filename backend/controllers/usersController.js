@@ -1,4 +1,4 @@
-const { deleteUserById, getUserById, updateUserById } = require('../services/userServices')
+const { deleteUserById, getUserById, updateUserById, getUnbannedUser } = require('../services/userServices')
 
 exports.getUserById = async (req, res) =>{
     try{
@@ -45,6 +45,22 @@ exports.deleteUser = async (req, res) =>{
     } catch(error){
         res.json({
             message:"Delete user failed",
+            error
+        })
+    }
+}
+
+exports.getUnbannedUser = async (req, res) =>{
+    try{
+        const countUnbanned = await getUnbannedUser()
+
+        res.json({
+            message: "get unbanned user successfully",
+            countUnbanned
+        })
+    } catch(error){
+        res.json({
+            message: "Cannot get unbanned user",
             error
         })
     }

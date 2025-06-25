@@ -68,6 +68,7 @@ exports.getProfile = async (req, res) => {
         // console.log(token)
         if (!token){
             return res.json({
+                userData: null,
                 isLogin: false,
                 message: "ยังไม่ได้เข้าสู่ระบบ"
             })

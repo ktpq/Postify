@@ -22,6 +22,8 @@ export default async function page(){
   const data = response.data;
   const userData = data.userData;
 
+  const letter = userData.user_username[0].toUpperCase()
+
   return (
     <>
     <section className='mx-70 max-xl:mx-20 max-lg:mx-0 pb-10'>
@@ -34,11 +36,7 @@ export default async function page(){
         <main className='bg-white rounded-lg shadow-md w-[40vw] mx-auto mt-7 p-7 max-xl:w-[75vw] max-md:w-[90vw]'>
 
             <div className='flex flex-col items-center space-y-3'>
-                <div className="avatar mt-3">
-                    <div className="ring-primary ring-offset-base-100 w-28 rounded-full ring-2 ring-offset-2">
-                        <img src="https://img.daisyui.com/images/profile/demo/spiderperson@192.webp" />
-                    </div>
-                </div> 
+                <span className="rounded-[100%] w-26 h-26 p-3 flex justify-center items-center bg-gradient text-white cursor-pointer text-3xl"> {letter}</span>
                 <h2 className='text-[30px] text-center mt-3'> แก้ไขข้อมูลโปรไฟล์ </h2>
                 <p className='text-gray-600'> อัปเดตข้อมูลส่วนตัวของคุณ</p>
             </div>

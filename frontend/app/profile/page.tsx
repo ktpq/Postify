@@ -13,11 +13,12 @@ export default async function page() {
     const data = await getProfile()
     const userData = data.userData;
     const userId = userData.id;
+    const base_api = process.env.NEXT_PUBLIC_API_URL
     
     // fetching data
     const getUserDetail = async () =>{
         try{
-            const base_api = process.env.NEXT_PUBLIC_API_URL
+            
             const response = await axios.get(`${base_api}/api/users/${userId}`)
             return response.data
         } catch (error){
@@ -28,6 +29,14 @@ export default async function page() {
     const user = await getUserDetail();
     const userDetail = user.userData;
 
+    // user article
+
+    const userArticle = await axios.get(`${base_api}/api/posts/user/${userId}`);
+    const articles = userArticle.data.data
+
+    const numArticles = articles.length
+    
+
     return (
         <div className='border-main'>
             <section className='mx-50 pt-15 max-xl:mx-20 max-lg:mx-7 '>
@@ -36,10 +45,10 @@ export default async function page() {
                     
 
                     {/* grid ช่องซ้าย */}
-                    <UserInformation userData={userDetail}/>
+                    <UserInformation userData={userDetail} num = {numArticles}/>
 
                     {/* grid ช่องขวา */}
-                    <UserArticles/>
+                    <UserArticles articles={articles}/>
                 </main>
             </section>
         </div>
