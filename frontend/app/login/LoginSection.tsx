@@ -47,13 +47,13 @@ export default function LoginSection() {
                 <input type="text" className="border border-gray-200 rounded-lg w-full py-3 pl-13 pr-5 font-light" placeholder="รหัสผ่านของคุณ" value={inputPassword} onChange={(event:React.ChangeEvent<HTMLInputElement>) => setInputPassword(event.target.value)}/>
                 </div>
 
-                <div className="mt-8 flex justify-between  items-center">
+                {/* <div className="mt-8 flex justify-between  items-center">
                 <div className="flex items-center">
                     <input type="checkbox" className="scale-110"/>
                     <p className="ml-3 text-gray-500"> จดจำการเข้าสู่ระบบ </p>
                 </div>
                 <a href="" className="text-blue-600"> ลืมรหัสผ่าน ? </a>
-                </div>
+                </div> */}
 
                 <button className="mt-8 bg-gradient w-full text-white py-4 rounded-lg shadow-sm" onClick={onSubmitButton}> เข้าสู่ระบบ </button>
 
