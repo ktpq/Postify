@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { redirect } from 'next/navigation'
 import UserInformation from './UserInformation'
 import UserArticles from './UserArticles'
 
@@ -11,7 +11,11 @@ export default async function page() {
 
     // get Id มาดูว่าเราเป็นใครเเละทำการส่งไปเพื่อ getUser
     const data = await getProfile()
-    const userData = data.userData;
+    const userData = data?.userData;
+    
+    if (!userData){
+        redirect('/')
+    }
     const userId = userData.id;
     const base_api = process.env.NEXT_PUBLIC_API_URL
     

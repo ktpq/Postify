@@ -8,6 +8,8 @@ import HomeWebStat from "./components/homeComponets/HomeWebStat";
 import HomeRecommendArticles from "./components/homeComponets/HomeRecommendArticles";
 import HomeGetStarted from "./components/homeComponets/HomeGetStarted";
 
+import { getProfile } from "./getProfile";
+
 import axios from "axios";
 
 export default async function page() {
@@ -28,18 +30,18 @@ export default async function page() {
   const allPostViewResponse = await axios.get(`${base_api}/api/posts/view`);
   const allPostView = allPostViewResponse.data.allPostView._sum.post_view;
   
-  
-
+  const data = await getProfile()
+  const userData = data.userData
   
 
   console.log(new Date())
 
   return (
     <div className="">
-      <HomeHero />
+      <HomeHero userData={userData}/>
       <HomeWebStat postCount={allPostCount} allUser={allUser} postToday={postToday} allPostView={allPostView}/>
       <HomeRecommendArticles recommendPost={recommendPost} />
-      <HomeGetStarted />
+      <HomeGetStarted userData={userData}/>
       <Footer />
     </div>
   );

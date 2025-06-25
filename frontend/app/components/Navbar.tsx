@@ -61,15 +61,15 @@ export default function Navbar({isLogin, userData}: Props) {
           >
             Postify
           </h1>
-          {userData?.role == "admin" && (
+          {/* {userData?.role == "admin" && (
             <span className="bg-red-200 text-red-600 px-4 ml-3 rounded-2xl border border-red-400 hover:bg-white duration-300"> Admin</span>
-          )}
+          )} */}
         </div>
 
         <div className="flex space-x-7 max-lg:hidden">
           <a href="/" className="text-[#384152] hover:from-blue-600 hover:to-purple-600 hover:bg-gradient-to-r hover:text-transparent hover:bg-clip-text">หน้าแรก</a>
           <a href="/articles" className="text-[#384152] hover:from-blue-600 hover:to-purple-600 hover:bg-gradient-to-r hover:text-transparent hover:bg-clip-text">บทความ</a>
-          <a href="" className="text-[#384152] hover:from-blue-600 hover:to-purple-600 hover:bg-gradient-to-r hover:text-transparent hover:bg-clip-text">เกี่ยวกับเรา</a>
+          {/* <a href="" className="text-[#384152] hover:from-blue-600 hover:to-purple-600 hover:bg-gradient-to-r hover:text-transparent hover:bg-clip-text">เกี่ยวกับเรา</a> */}
         </div>
 
         {isLogin ? (
@@ -99,14 +99,14 @@ export default function Navbar({isLogin, userData}: Props) {
                   </a>
                 </div>
 
-                {userData?.role == "admin" && (
+                {/* {userData?.role == "admin" && (
                   <div className="p-1.5 rounded-lg">
                     <a href="/admin" className="flex items-center space-x-3 hover:bg-gray-100 duration-200 p-1">
                       <img src="../setting.png" alt="" width={23} className="ml-2" />
                       <p className="pt-1"> จัดการระบบ </p>
                     </a>
                   </div>
-                )}
+                )} */}
 
               </div>
 
@@ -153,7 +153,7 @@ export default function Navbar({isLogin, userData}: Props) {
         <div className="hidden max-lg:flex text-center p-3 flex-col items-start space-y-5 m-3 border-b border-gray-300 pb-3">
           <a href="/" className="from-blue-600 to-purple-600 bg-gradient-to-r text-transparent bg-clip-text">หน้าแรก</a>
           <a href="/articles" className="from-blue-600 to-purple-600 bg-gradient-to-r text-transparent bg-clip-text">บทความ</a>
-          <a href="" className="from-blue-600 to-purple-600 bg-gradient-to-r text-transparent bg-clip-text">เกี่ยวกับเรา</a>
+          {/* <a href="" className="from-blue-600 to-purple-600 bg-gradient-to-r text-transparent bg-clip-text">เกี่ยวกับเรา</a> */}
         </div>
 
         {/* เช็คว่า Login หรือยัง */}
@@ -178,10 +178,10 @@ export default function Navbar({isLogin, userData}: Props) {
                 <img src="../person-black.png" alt="" width={20} />
                 <p> โปรไฟล์ </p>
               </a>
-              <a href="/admin" className="flex items-center space-x-3">
+              {/* <a href="/admin" className="flex items-center space-x-3">
                 <img src="../setting.png" alt="" width={20} />
                 <p> จัดการระบบ </p>
-              </a>
+              </a> */}
               <a href="/login" className="flex items-center space-x-3 cursor-pointer" onClick={handleLogout}>
                 <img src="../exit-red.png" alt="" width={20} />
                 <p className="text-red-500"> ออกจากระบบ </p>

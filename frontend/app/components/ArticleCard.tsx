@@ -62,7 +62,7 @@ export default function ArticleCard({title ="Default card title", description, a
 
                 <div className='flex justify-between items-center mt-1'>
                     <p className='text-[#6c6e70]'> {formattedDate} </p>
-                    <button className='px-3 py-2 rounded-lg hover:bg-gray-100 duration-200 hover:scale-105' onClick={switchPage}> อ่านต่อ </button>
+                    <button className='px-3 py-2 rounded-lg hover:bg-gray-100 duration-200 hover:scale-105 cursor-pointer' onClick={switchPage}> อ่านต่อ </button>
                 </div> 
             </div>
                 
