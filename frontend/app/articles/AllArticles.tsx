@@ -30,7 +30,6 @@ interface Props{
 
 export default function AllArticles({allPost}: Props) {
 
-    console.log('here', allPost)
 
     const [search, setSearch] = useState<string>("")
     const [category, setCategory] = useState<string>("ทั้งหมด")

@@ -1,6 +1,6 @@
 'use server'
 import React from 'react'
-
+import { redirect, RedirectType } from 'next/navigation';
 import Navbar from '@/app/components/Navbar';
 
 import axios from 'axios';
@@ -20,7 +20,9 @@ export default async function page({params}: ParamsProp) {
   const response = await axios.get(`${base_api}/api/posts/${id}`)
   const data = response.data;
   const post = data.postDetail
-  console.log(post)
+  if (!post){
+    redirect('/')
+  }
 
   const date = post.post_createdAt;
   const formattedDate = new Date(date).toLocaleDateString("th-TH");

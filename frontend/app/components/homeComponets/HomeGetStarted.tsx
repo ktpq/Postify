@@ -1,6 +1,21 @@
+'use client'
 import React from "react";
+import { useRouter } from "next/navigation";
 
-export default function HomeGetStarted() {
+
+interface Props{
+  userData: any
+}
+
+export default function HomeGetStarted({userData}: Props) {
+  const router = useRouter()
+  const handleClick = () =>{
+    if (userData){
+      router.push('/')
+    } else {
+      router.push('/register')
+    }
+  }
   return (
     <section className="flex justify-center items-center h-[450px] bg-gradient text-center mt-20">
       <div className="w-fit">
@@ -27,7 +42,7 @@ export default function HomeGetStarted() {
         </svg>
         <h2 className="text-white text-4xl"> พร้อมจะเริ่มเรียนหรือยัง </h2>
         <p className="text-white text-[20px] mt-5"> เข้าร่วมกับชุมชนนักเขียนไทยหลายพันคน แบ่งปันประสบการณ์ เรียนรู้ไปด้วยกัน </p>
-        <button className="shadow-md px-6 py-3 rounded-lg text-[20px] hover:scale-105 hover:bg-gray-100 duration-300 bg-white cursor-pointer mt-6">
+        <button className="shadow-md px-6 py-3 rounded-lg text-[20px] hover:scale-105 hover:bg-gray-100 duration-300 bg-white cursor-pointer mt-6" onClick={handleClick}>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">
                 สมัครสมาชิกฟรี
             </span>
