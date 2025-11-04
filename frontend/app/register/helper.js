@@ -62,6 +62,7 @@ export const handleRegister = async (
     });
 
     if (response.data.error) {
+      console.log(response.data.error)
       Swal.fire({
         title: "มีอีเมล์นี้อยู่ในระบบอยู่แล้ว",
         text: "กรุณาลองใหม่อีกครั้ง!",

@@ -25,6 +25,8 @@ app.use(authRouter)
 app.use(userRouter)
 app.use(postRouter)
 
+app.get('/api/test', (req, res) => res.send('Hello World!'))
+
 
 
 app.listen(port, () => {

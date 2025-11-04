@@ -1,0 +1,54 @@
+  # version: "3.8"
+
+  services:
+
+    db:
+      container_name: postify-db
+      image: mysql:8.0
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: Kartpol47!
+        MYSQL_DATABASE: postify
+        MYSQL_USER: prisma_postify
+        MYSQL_PASSWORD: Kartpol47!
+      ports:
+        - "3307:3306"
+      volumes:
+        - postify_data:/var/lib/mysql
+
+
+    backend:
+      container_name: postify-backend
+      restart: always
+      build:
+        context: ./backend
+        dockerfile: Dockerfile
+      volumes:
+        # - ./backend:/app
+        - /app/node_modules
+        # - /app/prisma
+      env_file:
+        - ./backend/.env
+      ports:
+        - "5000:5000"
+      # depends_on:
+      #   - db
+
+    frontend:
+      container_name: postify-frontend
+      restart: always
+      build:
+        context: ./frontend
+        dockerfile: Dockerfile
+      volumes:
+        - ./frontend:/app
+        - /app/node_modules
+      env_file:
+        - ./frontend/.env.local
+      ports:
+        - "3000:3000"
+      environment:
+        - CHOKIDAR_USEPOLLING=true
+
+  volumes:
+    postify_data:
