@@ -4,7 +4,8 @@
 2. git clone https://github.com/ktpq/Postify.git
 3. เปิด terminal
 4. รัน docker compose up -d --build
-5. รัน docker exec -it postify-backend npx prisma db push
+5. รัน docker exec -it postify-backend sh -c "npx prisma db push"
+6. เปิด localhost:3000
 
 
 
