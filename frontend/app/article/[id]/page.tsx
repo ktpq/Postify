@@ -1,21 +1,10 @@
 'use server'
 import React from 'react'
-import { redirect, RedirectType } from 'next/navigation';
-import Navbar from '@/app/components/Navbar';
-
+import { redirect } from 'next/navigation';
 import axios from 'axios';
 
-interface ParamsProp{
-    params: {
-        id: number
-    }
-}
-
-
-
-export default async function page({params}: ParamsProp) {
-  const { id } = await params;
-
+export default async function page({ params }: { params: { id: string } }) {
+  const { id } = await params
   const base_api = process.env.NEXT_PUBLIC_API_URL
   const response = await axios.get(`${base_api}/api/posts/${id}`)
   const data = response.data;
