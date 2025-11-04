@@ -13,7 +13,7 @@ import { getProfile } from "./getProfile";
 import axios from "axios";
 
 export default async function page() {
-  const base_api = process.env.NEXT_PUBLIC_API_URL
+  const base_api = process.env.API_URL
   // recommendPost
   const recommendResponse = await axios.get(`${base_api}/api/posts/recommend`);
   const recommendPost = recommendResponse.data.recommendPost

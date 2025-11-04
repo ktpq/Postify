@@ -9,7 +9,7 @@ import axios from 'axios'
 
 export default async function page(){
 
-  const base_api = process.env.NEXT_PUBLIC_API_URL
+  const base_api = process.env.API_URL
   const dataId = await getProfile()
  
   if (!dataId.userData){

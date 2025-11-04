@@ -1,12 +1,13 @@
 'use client'
 import React from 'react'
 
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import axios from 'axios';
+import { create } from 'domain';
 
 interface Props{
   title:string
@@ -19,18 +20,19 @@ interface Props{
 
 export default function ArticleCard({title ="Default card title", description, author, createdAt, postId, category}:Props) {
 
-  // const year = createdAt.split("-")[0]
-  // const month = createdAt.split("-")[1]
-  // const date = createdAt.split("-")[2]
-  // const day = date.slice(0,2)
-
+  
+  const [formattedDate, setFormattedDate] = useState<string>("");
   const router = useRouter()
-
-  const date = createdAt;
   // const formattedDate = new Date(date).toLocaleDateString("th-TH");
-
+  const dateObj = new Date(createdAt)
   useEffect(() =>{
     AOS.init()
+    const dateStr = dateObj.toLocaleDateString("th-TH", {
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    });
+    setFormattedDate(dateStr)
   })
 
   const switchPage = async () =>{
@@ -61,8 +63,7 @@ export default function ArticleCard({title ="Default card title", description, a
                 <p className='mt-12'> {author} </p>
 
                 <div className='flex justify-between items-center mt-1'>
-                    {/* <p className='text-[#6c6e70]'> {formattedDate} </p> */}
-                    div
+                    <p className='text-[#6c6e70]'> {formattedDate} </p>
                     <button className='px-3 py-2 rounded-lg hover:bg-gray-100 duration-200 hover:scale-105 cursor-pointer' onClick={switchPage}> อ่านต่อ </button>
                 </div> 
             </div>

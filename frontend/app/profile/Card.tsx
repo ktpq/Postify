@@ -2,7 +2,7 @@
 import React from 'react'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
-
+import { useState, useEffect } from 'react'
 import Swal from 'sweetalert2'
 
 interface Props{
@@ -15,8 +15,18 @@ interface Props{
 }
 
 export default function Card({id, title, desc, status, view, time}: Props) {
-
+    const [formattedDate, setFormattedDate] = useState<string>("");
     const router = useRouter()
+    const dateObj = new Date(time)
+
+    useEffect(() => {
+        const dateStr = dateObj.toLocaleDateString("th-TH", {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        });
+        setFormattedDate(dateStr)
+    }, [])
 
   const deletePost = (id: number) =>{
     Swal.fire({
@@ -65,7 +75,7 @@ export default function Card({id, title, desc, status, view, time}: Props) {
             <div className='flex space-x-4'>
                 <div className='flex space-x-2 max-sm:flex-1'>
                     <img src="../calendar.png" alt="" width={20}/>
-                    <p className='text-gray-600'>{new Date(time).toLocaleDateString("th-TH")}</p>
+                    <p className='text-gray-600'>{formattedDate}</p>
                 </div>
                 <p className='text-gray-600'> {view} ครั้งดู</p>
             </div>

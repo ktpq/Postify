@@ -17,7 +17,7 @@ export default async function page() {
         redirect('/')
     }
     const userId = userData.id;
-    const base_api = process.env.NEXT_PUBLIC_API_URL
+    const base_api = process.env.API_URL
     
     // fetching data
     const getUserDetail = async () =>{

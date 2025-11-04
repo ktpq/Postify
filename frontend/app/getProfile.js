@@ -5,7 +5,7 @@ import axios from "axios";
 
 export const getProfile = async () =>{
   try{
-    const base_api = process.env.NEXT_PUBLIC_API_URL
+    const base_api = process.env.API_URL
     const cookieStore = await cookies();
     const cookieString = cookieStore.toString();
     const response = await axios.get(`${base_api}/api/getProfile`, {

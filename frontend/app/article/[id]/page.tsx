@@ -5,7 +5,7 @@ import axios from 'axios';
 
 export default async function page({ params }: { params: { id: string } }) {
   const { id } = await params
-  const base_api = process.env.NEXT_PUBLIC_API_URL
+  const base_api = process.env.API_URL
   const response = await axios.get(`${base_api}/api/posts/${id}`)
   const data = response.data;
   const post = data.postDetail
