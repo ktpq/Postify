@@ -27,7 +27,7 @@ export default function ArticleCard({title ="Default card title", description, a
   const router = useRouter()
 
   const date = createdAt;
-  const formattedDate = new Date(date).toLocaleDateString("th-TH");
+  // const formattedDate = new Date(date).toLocaleDateString("th-TH");
 
   useEffect(() =>{
     AOS.init()
@@ -61,7 +61,8 @@ export default function ArticleCard({title ="Default card title", description, a
                 <p className='mt-12'> {author} </p>
 
                 <div className='flex justify-between items-center mt-1'>
-                    <p className='text-[#6c6e70]'> {formattedDate} </p>
+                    {/* <p className='text-[#6c6e70]'> {formattedDate} </p> */}
+                    div
                     <button className='px-3 py-2 rounded-lg hover:bg-gray-100 duration-200 hover:scale-105 cursor-pointer' onClick={switchPage}> อ่านต่อ </button>
                 </div> 
             </div>

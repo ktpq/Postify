@@ -42,7 +42,7 @@ export default async function page() {
       <HomeWebStat postCount={allPostCount} allUser={allUser} postToday={postToday} allPostView={allPostView}/>
       <HomeRecommendArticles recommendPost={recommendPost} />
       <HomeGetStarted userData={userData}/>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
