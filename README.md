@@ -44,9 +44,4 @@
 
 ---
 
-## 📱 Preview
-
-![image](https://github.com/user-attachments/assets/1538e720-0f09-4624-a354-980152b857c1)
-
----
 
