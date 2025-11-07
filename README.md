@@ -1,10 +1,22 @@
 # วิธีการใช้งาน
 
 1. เปิด Docker desktop
-2. git clone https://github.com/ktpq/Postify.git
-3. cd Postify
-4. รัน docker compose up -d --build
-5. รัน docker exec -it postify-backend sh -c "npx prisma db push"
+2. โคลนโปรเจคต์
+```bash
+git clone https://github.com/ktpq/Postify.git
+```
+3. เข้าไปในโฟลเดอร์
+```bash
+cd Postify
+```
+4. รันโปรเจคด้วย Docker compose
+```bash
+docker compose up -d --build
+```
+5. Migrate database
+```bash
+docker exec -it postify-backend sh -c "npx prisma db push"
+```
 6. เปิด localhost:3000
 
 
